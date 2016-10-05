@@ -1,0 +1,71 @@
+---
+output: word_document
+---
+Distributions of modeled climate data: 2055-2059
+========================================================
+
+### Solar radiation - GSW
+####  (1) PRC4.5
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+load("C:/Users/Hitomi/Dropbox/Ozone project/data/project_data.RData")
+library(lattice)
+histogram(~ solar.GSW45| siteID, future)
+tapply(future$solar.GSW45, future$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```
+####  (1) PRC8.5
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+histogram(~ solar.GSW85| siteID, future)
+tapply(future$solar.GSW85, future$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```
+
+
+### Solar radiation - RGRND
+####  (1) PRC4.5
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+histogram(~ solar.RGRND45 | siteID, future)
+tapply(future$solar.RGRND45, future$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```
+####  (2) PRC8.5
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+histogram(~ solar.RGRND85 | siteID, future)
+tapply(future$solar.RGRND85, future$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```
+
+
+### Temperature
+####  (1) PRC4.5
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+histogram(~ temp.max45 | siteID, future)
+tapply(future$temp.max45, future$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```
+####  (2) PRC8.5
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+histogram(~ temp.max85 | siteID, future)
+tapply(future$temp.max85, future$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```
+
+
+### Humidity
+####  (1) PRC4.5
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+histogram(~ humid45 | siteID, future)
+tapply(future$humid45, future$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```
+####  (2) PRC8.5
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+histogram(~ humid85 | siteID, future)
+tapply(future$humid85, future$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```
+
+
+### precipitation
+####  (1) PRC4.5
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+histogram(~ prcp45 | siteID, future)
+tapply(future$prcp45, future$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```
+####  (2) PRC8.5
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+histogram(~ prcp85 | siteID, future)
+tapply(future$prcp85, future$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```

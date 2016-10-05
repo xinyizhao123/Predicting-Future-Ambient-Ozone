@@ -1,0 +1,46 @@
+---
+output: word_document
+---
+Distributions of modeled climate data: 2001-2004
+========================================================
+
+### Solar radiation - GSW
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+load("C:/Users/Hitomi/Dropbox/Ozone project/data/project_data.RData")
+library(lattice)
+histogram(~ solar.s.GSW | siteID, study)
+tapply(study$solar.s.GSW, study$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```
+
+
+### Solar radiation - RGRND
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+histogram(~ solar.s.RGRND | siteID, study)
+tapply(study$solar.s.RGRND, study$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```
+
+
+### Temperature
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+histogram(~ temp.max.s | siteID, study)
+tapply(study$temp.max.s, study$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```
+
+
+### Humidity
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+histogram(~ humid.s | siteID, study)
+tapply(study$humid.s, study$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```
+
+
+### precipitation
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+histogram(~ prcp.s | siteID, study)
+tapply(study$prcp.s, study$siteID, quantile, seq(0, 1, by= 0.01), na.rm=TRUE)
+```
